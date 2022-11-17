@@ -12,8 +12,8 @@ def print_board(board):
     print('  A B C D E F G H')
     print('  ---------------')
     row_number = 1
-    for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
+    for space in board:
+        print("%d|%s|" % (row_number, "|".join(space)))
         row_number += 1
 
 
@@ -26,15 +26,15 @@ def create_ships(board):
 
 
 def get_ship_location():
-    row = input('Enter a ship row 1-8 /n')
-    while row not in '12345678':
+    row_space = input('Enter a ship row 1-8 /n')
+    while row_space not in '12345678':
         print('Enter a valid row')
-        row = input('Enter a ship row 1-8 /n')
-    column = input('Enter a ship column A-H /n').upper()
-    while column not in 'ABCDEFGH':
+        row_space = input('Enter a ship row 1-8 /n')
+    column_space = input('Enter a ship column A-H /n').upper()
+    while column_space not in 'ABCDEFGH':
         print('Enter a valid column')
-        column = input('Please enter a ship column A-H /n').upper()
-    return int(row) - 1, letters_to_numbers[column]
+        column_space = input('Please enter a ship column A-H /n').upper()
+    return int(row_space) - 1, letters_to_numbers[column_space]
 
 
 def count_hits_ships(board):
