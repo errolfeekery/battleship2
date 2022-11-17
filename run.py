@@ -22,6 +22,8 @@ def print_board(board):
 
 
 def create_ships(board):
+    """Uses random to generate ships
+"""
     for ignore in range(5):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == 'X':
@@ -30,6 +32,8 @@ def create_ships(board):
 
 
 def get_ship_location():
+    """Takes inputs to locate ships
+"""
     row_space = input('Enter a ship row 1-8 /n')
     while row_space not in '12345678':
         print('Enter a valid row')
