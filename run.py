@@ -1,3 +1,4 @@
+"""Random method."""
 from random import randint
 
 
@@ -9,6 +10,9 @@ letters_to_numbers = {'A': 0, 'B': 1, 'C': 2, 'D': 3,
 
 
 def print_board(board):
+    """Prints board with header and separator
+    Loops through list of board.
+"""
     print('  A B C D E F G H')
     print('  ---------------')
     row_number = 1
@@ -18,7 +22,7 @@ def print_board(board):
 
 
 def create_ships(board):
-    for ship in range(5):
+    for ignore in range(5):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == 'X':
             ship_row, ship_column = randint(0, 7), randint(0, 7)
@@ -39,9 +43,9 @@ def get_ship_location():
 
 def count_hits_ships(board):
     count = 0
-    for row in board:
-        for column in row:
-            if column == 'X':
+    for ignore in board:
+        for ship_column in row:
+            if ship_column == 'X':
                 count += 1
         return count
 
