@@ -24,7 +24,7 @@ def print_board(board):
 def create_ships(board):
     """Uses random to generate ships
 """
-    for ignore in range(5):
+    for ship in range(5):
         ship_row, ship_column = randint(0, 7), randint(0, 7)
         while board[ship_row][ship_column] == 'X':
             ship_row, ship_column = randint(0, 7), randint(0, 7)
@@ -34,20 +34,20 @@ def create_ships(board):
 def get_ship_location():
     """Takes inputs to locate ships
 """
-    row_space = input('Enter a ship row 1-8 /n')
+    row_space = input('Enter a ship row 1-8/n')
     while row_space not in '12345678':
         print('Enter a valid row')
-        row_space = input('Enter a ship row 1-8 /n')
-    column_space = input('Enter a ship column A-H /n').upper()
+        row_space = input('Enter a ship row 1-8/n')
+    column_space = input('Enter a ship column A-H/n').upper()
     while column_space not in 'ABCDEFGH':
         print('Enter a valid column')
-        column_space = input('Please enter a ship column A-H /n').upper()
+        column_space = input('Please enter a ship column A-H/n').upper()
     return int(row_space) - 1, letters_to_numbers[column_space]
 
 
 def count_hits_ships(board):
     count = 0
-    for ignore in board:
+    for row in board:
         for ship_column in row:
             if ship_column == 'X':
                 count += 1
